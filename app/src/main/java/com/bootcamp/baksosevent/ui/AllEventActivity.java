@@ -15,6 +15,7 @@ import com.bootcamp.baksosevent.application.AppController;
 import com.bootcamp.baksosevent.model.Event;
 import com.bootcamp.baksosevent.service.APIClient;
 import com.bootcamp.baksosevent.service.APIInterfacesRest;
+import com.bootcamp.baksosevent.utils.SharedPreferencesUtil;
 import com.raizlabs.android.dbflow.config.FlowManager;
 import com.raizlabs.android.dbflow.sql.queriable.StringQuery;
 import com.raizlabs.android.dbflow.structure.database.DatabaseWrapper;
@@ -31,7 +32,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AllEventActivity extends AppCompatActivity {
-  String username;
+  SharedPreferencesUtil session;
   RecyclerView listAllEvent;
   List<Event> listEvent;
 
@@ -40,8 +41,8 @@ public class AllEventActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_all_event);
 
-    username = getIntent().getStringExtra("username");
-    setTitle(username);
+    session = new SharedPreferencesUtil(AllEventActivity.this);
+    setTitle(session.getUsername());
     listAllEvent = findViewById(R.id.listAllEvent);
     callEventAPI();
   }

@@ -1,7 +1,5 @@
 package com.bootcamp.baksosevent.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,16 +9,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.bootcamp.baksosevent.R;
-import com.bootcamp.baksosevent.adapter.AllEventAdapter;
-import com.bootcamp.baksosevent.model.Event;
 import com.bootcamp.baksosevent.model.ResponseAPI;
 import com.bootcamp.baksosevent.service.APIClient;
 import com.bootcamp.baksosevent.service.APIInterfacesRest;
+import com.bootcamp.baksosevent.utils.SharedPreferencesUtil;
 
 import org.json.JSONObject;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,6 +25,7 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
   ResponseAPI responseAPI;
+  SharedPreferencesUtil session;
 
   EditText etUsername, etPassword;
   Button btnLogin;
@@ -38,6 +36,12 @@ public class LoginActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_login);
 
+    session = new SharedPreferencesUtil(LoginActivity.this);
+    if (!session.getUsername().equals("")) {
+      Intent intent = new Intent(LoginActivity.this, AllEventActivity.class);
+      startActivity(intent);
+      finish();
+    }
     etUsername = findViewById(R.id.etUsername);
     etPassword = findViewById(R.id.etPassword);
     btnLogin = findViewById(R.id.btnLogin);
@@ -96,9 +100,10 @@ public class LoginActivity extends AppCompatActivity {
 
   private void kondisiLogin() {
     if (responseAPI.getStatus().booleanValue() == true) {
+      session.setUsername(responseAPI.getMessage());
       Intent intent = new Intent(LoginActivity.this, AllEventActivity.class);
-      intent.putExtra("username", responseAPI.getMessage());
       startActivity(intent);
+      finish();
     }
     else {
       Toast.makeText(LoginActivity.this, responseAPI.getMessage(), Toast.LENGTH_LONG).show();
