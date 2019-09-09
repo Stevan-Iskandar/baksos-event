@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.bootcamp.baksosevent.R;
 import com.bootcamp.baksosevent.adapter.AllEventAdapter;
 import com.bootcamp.baksosevent.model.Event;
+import com.bootcamp.baksosevent.model.ResponseAPI;
 import com.bootcamp.baksosevent.service.APIClient;
 import com.bootcamp.baksosevent.service.APIInterfacesRest;
 
@@ -26,6 +27,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
+  ResponseAPI responseAPI;
+
   EditText etUsername, etPassword;
   Button btnLogin;
   TextView txtBuatAkun;
@@ -43,9 +46,62 @@ public class LoginActivity extends AppCompatActivity {
     btnLogin.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        Intent intent = new Intent(LoginActivity.this, AllEventActivity.class);
+        loginAPI();
+      }
+    });
+
+    txtBuatAkun.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent = new Intent(LoginActivity.this, BuatAkunUserActivity.class);
         startActivity(intent);
       }
     });
+  }
+
+  APIInterfacesRest apiInterface;
+  ProgressDialog progressDialog;
+  public void loginAPI() {
+    apiInterface = APIClient.getClient().create(APIInterfacesRest.class);
+    progressDialog = new ProgressDialog(LoginActivity.this);
+    progressDialog.setTitle("Loading");
+    progressDialog.show();
+    Call<ResponseAPI> mulaiRequest = apiInterface.postLogin(etUsername.getText().toString(), etPassword.getText().toString());
+    mulaiRequest.enqueue(new Callback<ResponseAPI>() {
+      @Override
+      public void onResponse(Call<ResponseAPI> call, Response<ResponseAPI> response) {
+        progressDialog.dismiss();
+        responseAPI = response.body();
+        if (responseAPI != null) {
+          kondisiLogin();
+//          Toast.makeText(LoginActivity.this, responseAPI.getMessage(), Toast.LENGTH_LONG).show();
+        } else {
+          try {
+            JSONObject jObjError = new JSONObject(response.errorBody().string());
+            Toast.makeText(LoginActivity.this, jObjError.getString("message"), Toast.LENGTH_LONG).show();
+          } catch (Exception e) {
+            Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+          }
+        }
+      }
+
+      @Override
+      public void onFailure(Call<ResponseAPI> call, Throwable t) {
+        progressDialog.dismiss();
+        Toast.makeText(getApplicationContext(), "Maaf koneksi bermasalah", Toast.LENGTH_LONG).show();
+        call.cancel();
+      }
+    });
+  }
+
+  private void kondisiLogin() {
+    if (responseAPI.getStatus().booleanValue() == true) {
+      Intent intent = new Intent(LoginActivity.this, AllEventActivity.class);
+      intent.putExtra("username", responseAPI.getMessage());
+      startActivity(intent);
+    }
+    else {
+      Toast.makeText(LoginActivity.this, responseAPI.getMessage(), Toast.LENGTH_LONG).show();
+    }
   }
 }

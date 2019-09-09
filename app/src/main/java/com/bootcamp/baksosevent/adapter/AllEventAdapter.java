@@ -14,10 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bootcamp.baksosevent.R;
 import com.bootcamp.baksosevent.model.Event;
+import com.bootcamp.baksosevent.service.APIClient;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class AllEventAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+  String localhost = APIClient.localhost;
   Context context;
   List<Event> lstEvent;
 
@@ -41,7 +44,7 @@ public class AllEventAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
       ContohViewHolder view = (ContohViewHolder) holder;
       final Event event = lstEvent.get(position);
 
-//      view.ivAllEvent.setVisibility(View.GONE);
+      Picasso.get().load("http://"+localhost+"/baksosevent/assets/img/event/" + event.getImage()).into(view.ivAllEvent);
       view.txtNama.setText(event.getNama());
       view.txtLokasi.setText(event.getLokasi());
       view.txtTanggal.setText(event.getTanggal());

@@ -82,11 +82,6 @@ public class Event extends BaseModel implements Serializable, Parcelable {
   }
 
   @Override
-  public int describeContents() {
-    return 0;
-  }
-
-  @Override
   public void writeToParcel(Parcel dest, int flags) {
     dest.writeValue(id);
     dest.writeValue(image);
@@ -97,6 +92,11 @@ public class Event extends BaseModel implements Serializable, Parcelable {
     dest.writeValue(deskripsi);
     dest.writeValue(dataDonasi);
     dest.writeValue(isActive);
+  }
+
+  @Override
+  public int describeContents() {
+    return 0;
   }
 
   public Integer getId() {

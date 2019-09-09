@@ -31,6 +31,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AllEventActivity extends AppCompatActivity {
+  String username;
   RecyclerView listAllEvent;
   List<Event> listEvent;
 
@@ -39,13 +40,15 @@ public class AllEventActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_all_event);
 
+    username = getIntent().getStringExtra("username");
+    setTitle(username);
     listAllEvent = findViewById(R.id.listAllEvent);
-    callEvent();
+    callEventAPI();
   }
 
   APIInterfacesRest apiInterface;
   ProgressDialog progressDialog;
-  public void callEvent() {
+  public void callEventAPI() {
     apiInterface = APIClient.getClient().create(APIInterfacesRest.class);
     progressDialog = new ProgressDialog(AllEventActivity.this);
     progressDialog.setTitle("Loading");
@@ -56,7 +59,6 @@ public class AllEventActivity extends AppCompatActivity {
       public void onResponse(Call<List<Event>> call, Response<List<Event>> response) {
         progressDialog.dismiss();
         listEvent = response.body();
-//        Toast.makeText(AllEventActivity.this, listEvent.toString(), Toast.LENGTH_LONG).show();
         if (listEvent != null) {
           savedb(); //setupAdapterList(userList);
         } else {
