@@ -40,8 +40,6 @@ public class User extends BaseModel implements Serializable, Parcelable {
   @Column
   private String tlp;
 
-  private final static long serialVersionUID = -28233401489564790L;
-
   public final static Creator<User> CREATOR = new Creator<User>() {
     @SuppressWarnings({
       "unchecked"
@@ -53,6 +51,8 @@ public class User extends BaseModel implements Serializable, Parcelable {
       return (new User[size]);
     }
   };
+
+  private final static long serialVersionUID = -28233401489564790L;
 
   protected User(Parcel in) {
     this.username = ((String) in.readValue((String.class.getClassLoader())));

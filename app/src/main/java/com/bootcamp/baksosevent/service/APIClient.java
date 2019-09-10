@@ -13,8 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class APIClient {
-  public static String localhost = "192.168.5.150";
-  public static String BASE_URL = "http://"+localhost+"/baksosevent/api/baksos/";
+  public static String BASE_URL = "http://192.168.1.7/";
   private static Retrofit retrofit = null;
 
   public static Retrofit getClient() {
