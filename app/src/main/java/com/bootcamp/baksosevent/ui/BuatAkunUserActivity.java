@@ -16,6 +16,7 @@ import com.bootcamp.baksosevent.model.ResponseAPI;
 import com.bootcamp.baksosevent.model.User;
 import com.bootcamp.baksosevent.service.APIClient;
 import com.bootcamp.baksosevent.service.APIInterfacesRest;
+import com.location.aravind.getlocation.GeoLocator;
 
 import org.json.JSONObject;
 
@@ -27,17 +28,20 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class BuatAkunUserActivity extends AppCompatActivity {
+  GeoLocator geoLocator;
+
   TextView txtUsernameError, txtPasswordError, txtNamaError, txtEmailError, txtAlamatError, txtTlpError;
   EditText etUsername, etPassword, etPasswordRetype, etNama, etEmail, etAlamat, etTlp;
-  Button btnBuatAkunUser;
+  Button btnBuatAkunUser, btnAlamat;
   User user;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    geoLocator = new GeoLocator(getApplicationContext(), BuatAkunUserActivity.this);
     setContentView(R.layout.activity_buat_akun_user);
 
-    txtUsernameError = findViewById(R.id.txtUserError);
+    txtUsernameError = findViewById(R.id.txtUsernameError);
     txtPasswordError = findViewById(R.id.txtPasswordError);
     txtNamaError = findViewById(R.id.txtNamaError);
     txtEmailError = findViewById(R.id.txtEmailError);
@@ -58,6 +62,14 @@ public class BuatAkunUserActivity extends AppCompatActivity {
     etEmail = findViewById(R.id.etEmail);
     etAlamat = findViewById(R.id.etAlamat);
     etTlp = findViewById(R.id.etTlp);
+
+    btnAlamat = findViewById(R.id.btnAlamat);
+    btnAlamat.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        etAlamat.setText(geoLocator.getAddress());
+      }
+    });
 
     btnBuatAkunUser = findViewById(R.id.btnBuatAkunUser);
     btnBuatAkunUser.setOnClickListener(new View.OnClickListener() {

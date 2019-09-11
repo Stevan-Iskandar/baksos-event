@@ -117,7 +117,6 @@ public class AllEventActivity extends AppCompatActivity {
       .queryListResultCallback(new QueryTransaction.QueryResultListCallback<Event>() {
                                  @Override
                                  public void onListQueryResult(QueryTransaction transaction, @NonNull List<Event> models) {
-
                                    setupAdapterList(models);
                                  }
                                }

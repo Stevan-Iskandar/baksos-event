@@ -4,315 +4,214 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:layout_margin="10dp"
-  android:orientation="vertical"
-  tools:context=".ui.BuatAkunUserActivity">
+  android:background="@drawable/bg_list_all_event"
+  android:orientation="vertical">
 
   <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:scrollbarSize="0dp">
+    android:layout_height="match_parent">
 
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:gravity="center_horizontal"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp"
       android:orientation="vertical">
 
+      <ImageView
+        android:layout_width="142dp"
+        android:layout_height="88dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        app:srcCompat="@drawable/logo" />
+
       <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="Buat Account" />
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="Form Pendaftaran"
+        android:textColor="#0A1E88"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
-      <LinearLayout
+      <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Nama Lengkap"
+        android:textColor="#0A1E88"
+        android:textSize="18sp" />
 
-        <TextView
-          android:layout_width="225dp"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:text="Nama" />
-
-        <EditText
-          android:id="@+id/etNama"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:ems="10"
-          android:inputType="textPersonName" />
-      </LinearLayout>
-
-      <LinearLayout
+      <EditText
+        android:id="@+id/etNama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="#0A1E88" />
 
-        <LinearLayout
-          android:layout_width="225dp"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:orientation="vertical"></LinearLayout>
-
-        <TextView
-          android:id="@+id/txtNamaError"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:text="Nama Error"
-          android:textColor="#FF0000"
-          android:textSize="10sp" />
-      </LinearLayout>
-
-      <LinearLayout
+      <TextView
+        android:id="@+id/txtNamaError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:text="Nama Error"
+        android:layout_marginBottom="10dp"
+        android:textColor="#FF0000"
+        android:textSize="12sp" />
 
-        <TextView
-          android:layout_width="225dp"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:text="Email" />
-
-        <EditText
-          android:id="@+id/etEmail"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:ems="10"
-          android:inputType="textPersonName" />
-      </LinearLayout>
-
-      <LinearLayout
+      <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:text="Email"
+        android:textColor="#0A1E88"
+        android:textSize="18sp" />
 
-        <LinearLayout
-          android:layout_width="225dp"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:orientation="vertical"></LinearLayout>
-
-        <TextView
-          android:id="@+id/txtEmailError"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:text="Email Error"
-          android:textColor="#FF0000"
-          android:textSize="10sp" />
-      </LinearLayout>
-
-      <LinearLayout
+      <EditText
+        android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:ems="10"
+        android:inputType="textPersonName" />
 
-        <TextView
-          android:layout_width="225dp"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:text="Alamat" />
-
-        <EditText
-          android:id="@+id/etAlamat"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:ems="10"
-          android:inputType="textPersonName" />
-      </LinearLayout>
-
-      <LinearLayout
+      <TextView
+        android:id="@+id/txtEmailError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:text="Email Error"
+        android:layout_marginBottom="10dp"
+        android:textColor="#FF0000"
+        android:textSize="12sp" />
 
-        <LinearLayout
-          android:layout_width="225dp"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:orientation="vertical"></LinearLayout>
-
-        <TextView
-          android:id="@+id/txtAlamatError"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:text="Alamat Error"
-          android:textColor="#FF0000"
-          android:textSize="10sp" />
-      </LinearLayout>
-
-      <LinearLayout
+      <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:text="Alamat"
+        android:textColor="#0A1E88"
+        android:textSize="18sp" />
 
-        <TextView
-          android:layout_width="225dp"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:text="Telepon" />
-
-        <EditText
-          android:id="@+id/etTlp"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:ems="10"
-          android:inputType="textPersonName" />
-      </LinearLayout>
-
-      <LinearLayout
+      <EditText
+        android:id="@+id/etAlamat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:ems="10"
+        android:inputType="textPersonName" />
 
-        <LinearLayout
-          android:layout_width="225dp"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:orientation="vertical"></LinearLayout>
-
-        <TextView
-          android:id="@+id/txtTlpError"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:text="Telepon Error"
-          android:textColor="#FF0000"
-          android:textSize="10sp" />
-      </LinearLayout>
-
-      <LinearLayout
+      <TextView
+        android:id="@+id/txtAlamatError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:text="Alamat Error"
+        android:layout_marginBottom="10dp"
+        android:textColor="#FF0000"
+        android:textSize="12sp" />
 
-        <TextView
-          android:layout_width="225dp"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:text="Username" />
+      <Button
+        android:id="@+id/btnAlamat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:backgroundTint="#006B6666"
+        android:text="Get My Location"
+        android:textColor="#0A1E88" />
 
-        <EditText
-          android:id="@+id/etUsername"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:ems="10"
-          android:inputType="textPersonName" />
-      </LinearLayout>
-
-      <LinearLayout
+      <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:text="No Telepon"
+        android:textColor="#0A1E88"
+        android:textSize="18sp" />
 
-        <LinearLayout
-          android:layout_width="225dp"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:orientation="vertical"></LinearLayout>
-
-        <TextView
-          android:id="@+id/txtUserError"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:text="User Error"
-          android:textColor="#FF0000"
-          android:textSize="10sp" />
-      </LinearLayout>
-
-      <LinearLayout
+      <EditText
+        android:id="@+id/etTlp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:ems="10"
+        android:inputType="phone" />
 
-        <TextView
-          android:layout_width="225dp"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:text="Password" />
-
-        <EditText
-          android:id="@+id/etPassword"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:ems="10"
-          android:inputType="textPassword" />
-      </LinearLayout>
-
-      <LinearLayout
+      <TextView
+        android:id="@+id/txtTlpError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:text="Telepon Error"
+        android:layout_marginBottom="10dp"
+        android:textColor="#FF0000"
+        android:textSize="12sp" />
 
-        <LinearLayout
-          android:layout_width="225dp"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:orientation="vertical"></LinearLayout>
-
-        <TextView
-          android:id="@+id/txtPasswordError"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:text="Password Error"
-          android:textColor="#FF0000"
-          android:textSize="10sp" />
-      </LinearLayout>
-
-      <LinearLayout
+      <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_marginTop="20dp"
+        android:text="Username"
+        android:textColor="#0A1E88"
+        android:textSize="18sp" />
 
-        <TextView
-          android:layout_width="225dp"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:text="Re-type password" />
+      <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="#0A1E88"
+        android:textSize="18sp" />
 
-        <EditText
-          android:id="@+id/etPasswordRetype"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:ems="10"
-          android:inputType="textPassword" />
+      <TextView
+        android:id="@+id/txtUsernameError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Username Error"
+        android:layout_marginBottom="10dp"
+        android:textColor="#FF0000"
+        android:textSize="12sp" />
 
-      </LinearLayout>
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:textColor="#0A1E88"
+        android:textSize="18sp" />
+
+      <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+      <TextView
+        android:id="@+id/txtPasswordError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Password Error"
+        android:layout_marginBottom="10dp"
+        android:textColor="#FF0000"
+        android:textSize="12sp" />
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Re-type Password"
+        android:textColor="#0A1E88"
+        android:textSize="18sp" />
+
+      <EditText
+        android:id="@+id/etPasswordRetype"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
 
       <Button
         android:id="@+id/btnBuatAkunUser"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Daftar" />
+        android:layout_gravity="right"
+        android:backgroundTint="#006B6666"
+        android:text="Submit"
+        android:layout_marginBottom="50dp"
+        android:textColor="#0A1E88" />
 
     </LinearLayout>
   </ScrollView>

@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
 
   EditText etUsername, etPassword;
   Button btnLogin;
-  TextView txtBuatAkun;
+  TextView txtBuatAkun, txtForgotPassword;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
 
     session = new SharedPreferencesUtil(LoginActivity.this);
     if (!session.getUsername().equals("")) {
-      Intent intent = new Intent(LoginActivity.this, AllEventActivity.class);
+      Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
       startActivity(intent);
       finish();
     }
@@ -46,6 +46,8 @@ public class LoginActivity extends AppCompatActivity {
     etPassword = findViewById(R.id.etPassword);
     btnLogin = findViewById(R.id.btnLogin);
     txtBuatAkun = findViewById(R.id.txtBuatAkun);
+    txtForgotPassword = findViewById(R.id.txtForgotPassword);
+    txtForgotPassword.setVisibility(View.GONE);
 
     btnLogin.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -101,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
   private void kondisiLogin() {
     if (responseAPI.getStatus().booleanValue() == true) {
       session.setUsername(responseAPI.getMessage());
-      Intent intent = new Intent(LoginActivity.this, AllEventActivity.class);
+      Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
       startActivity(intent);
       finish();
     }
