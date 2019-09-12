@@ -1,6 +1,7 @@
 package com.bootcamp.baksosevent.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bootcamp.baksosevent.R;
 import com.bootcamp.baksosevent.model.Event;
 import com.bootcamp.baksosevent.service.APIClient;
+import com.bootcamp.baksosevent.ui.DetailEventActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -52,7 +54,10 @@ public class AllEventAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
       view.cvAllEvent.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-          Toast.makeText(context, "Card dipencet " + event.getId(), Toast.LENGTH_LONG).show();
+//          Toast.makeText(context, "Card dipencet " + event.getId(), Toast.LENGTH_LONG).show();
+          Intent intent = new Intent(context, DetailEventActivity.class);
+          intent.putExtra("eventId", String.valueOf(event.getId()));
+          context.startActivity(intent);
         }
       });
     }

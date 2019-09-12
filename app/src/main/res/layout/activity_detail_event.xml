@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@drawable/bg_list_all_event"
+  android:orientation="vertical">
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center_horizontal"
+      android:orientation="vertical">
+
+      <ImageView
+        android:id="@+id/ivEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical">
+
+        <TextView
+          android:id="@+id/txtPeserta"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="People"
+          android:textStyle="bold" />
+
+        <TextView
+          android:id="@+id/txtNama"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:layout_weight="1"
+          android:text="Nama event" />
+
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="5dp"
+          android:layout_weight="1"
+          android:text="Deskripsi "
+          android:textStyle="bold" />
+
+        <TextView
+          android:id="@+id/txtDeskripsi"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:layout_weight="1"
+          android:text="It is the grandiose vision of the Dream World Wide program to allow learning of the original Arabic language of the Quran easy to learn and accessible regardless of a person's language of origin. We want to empower as many students and teachers around the world as possible with our" />
+
+        <TextView
+          android:id="@+id/txtDonasi"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="Donasi" />
+
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:layout_weight="1"
+          android:text="FAQs" />
+
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="5dp"
+          android:layout_weight="1"
+          android:text="Hours :"
+          android:textStyle="bold" />
+
+        <TextView
+          android:id="@+id/txtTanggalWaktu"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="Weekday Hours: 7 PM - 10 PM" />
+
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="5dp"
+          android:layout_weight="1"
+          android:text="Location :"
+          android:textStyle="bold" />
+
+        <TextView
+          android:id="@+id/txtLokasi"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="Balai Kartini @ Nusah Indah Theatre  Jl. Gatot Subroto No.Kav. 37, RT.6/RW.3  Kuningan, Setiabudi, Kota Jakarta Selatan  Daerah Khusus Ibukota, Jakarta 12950" />
+
+        <Button
+          android:id="@+id/btnDaftar"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:layout_marginBottom="10dp"
+          android:layout_weight="1"
+          android:background="#99A09C9C"
+          android:text="Daftar " />
+
+      </LinearLayout>
+
+    </LinearLayout>
+  </ScrollView>
+
+</LinearLayout>

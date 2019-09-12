@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  android:background="@drawable/bg_list_all_event"
+  tools:context=".ui.DonateActivity">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp">
+
+    <ImageView
+      android:id="@+id/imageView4"
+      android:layout_width="89dp"
+      android:layout_height="100dp"
+      android:layout_gravity="center"
+      android:layout_marginTop="30dp"
+      app:srcCompat="@drawable/logo" />
+
+    <TextView
+      android:id="@+id/textView13"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="50dp"
+      android:gravity="center"
+      android:text="Information Donate"
+      android:textSize="24sp"
+      android:textStyle="bold" />
+
+    <TextView
+      android:id="@+id/textView14"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="30dp"
+      android:text="if you want to make a donation as a form of support for our activities, please send it to the following account" />
+
+    <TextView
+      android:id="@+id/textView3"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="30dp"
+      android:text="Usmoyo Harif Munandar" />
+
+    <TextView
+      android:id="@+id/textView15"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:text="BCA - 123456****" />
+
+    <TextView
+      android:id="@+id/textView18"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="30dp"
+      android:text="Steven" />
+
+    <TextView
+      android:id="@+id/textView19"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:text="BRI - 3216542****" />
+
+    <TextView
+      android:id="@+id/textView20"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="30dp"
+      android:text="thank you for the donation you gave. every form of assistance is needed for the realization of a good social order." />
+
+  </LinearLayout>
+
+</LinearLayout>
