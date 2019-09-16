@@ -16,6 +16,7 @@ import com.bootcamp.baksosevent.R;
 import com.bootcamp.baksosevent.application.AppController;
 import com.bootcamp.baksosevent.model.Event;
 import com.bootcamp.baksosevent.model.Peserta;
+import com.bootcamp.baksosevent.model.ResponseAPI;
 import com.bootcamp.baksosevent.service.APIClient;
 import com.bootcamp.baksosevent.service.APIInterfacesRest;
 import com.bootcamp.baksosevent.utils.SharedPreferencesUtil;
@@ -106,9 +107,9 @@ public class DetailEventActivity extends AppCompatActivity {
       .beginTransactionAsync(new ProcessModelTransaction.Builder<>(
         new ProcessModelTransaction.ProcessModel<Peserta>() {
           @Override
-          public void processModel(Peserta post, DatabaseWrapper wrapper) {
+          public void processModel(Peserta peserta, DatabaseWrapper wrapper) {
 
-            post.save();
+            peserta.save();
 
           }
 
@@ -123,7 +124,13 @@ public class DetailEventActivity extends AppCompatActivity {
         @Override
         public void onSuccess(Transaction transaction) {
           Toast.makeText(getApplicationContext(), "Data Tersimpan", Toast.LENGTH_LONG).show();
-          txtPeserta.setText(listPeserta.size() + " peserta");
+          int jml = 0;
+          for (int i=0; i<listPeserta.size(); i++) {
+            if (listPeserta.get(i).getIsRegistered().equals(1)) {
+              jml++;
+            }
+          }
+          txtPeserta.setText(jml + " peserta");
           txtPeserta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -166,7 +173,7 @@ public class DetailEventActivity extends AppCompatActivity {
       ).execute();
   }
 
-  Peserta pesertaDaftar;
+  ResponseAPI responseAPIdaftar;
 
   APIInterfacesRest apiInterfaceDaftar;
   ProgressDialog progressDialogDaftar;
@@ -175,14 +182,14 @@ public class DetailEventActivity extends AppCompatActivity {
     progressDialogDaftar = new ProgressDialog(DetailEventActivity.this);
     progressDialogDaftar.setTitle("Loading");
     progressDialogDaftar.show();
-    Call<Peserta> mulaiRequest = apiInterfaceDaftar.postDaftarEvent(id, session.getUsername());
-    mulaiRequest.enqueue(new Callback<Peserta>() {
+    Call<ResponseAPI> mulaiRequest = apiInterfaceDaftar.postDaftarEvent(id, session.getUsername());
+    mulaiRequest.enqueue(new Callback<ResponseAPI>() {
       @Override
-      public void onResponse(Call<Peserta> call, Response<Peserta> response) {
+      public void onResponse(Call<ResponseAPI> call, Response<ResponseAPI> response) {
         progressDialogDaftar.dismiss();
-        pesertaDaftar = response.body();
-        if (pesertaDaftar != null) {
-          Toast.makeText(DetailEventActivity.this, "Berhasil daftar", Toast.LENGTH_LONG).show();
+        responseAPIdaftar = response.body();
+        if (responseAPIdaftar != null) {
+          Toast.makeText(DetailEventActivity.this, responseAPIdaftar.getMessage(), Toast.LENGTH_LONG).show();
           finish();
           startActivity(getIntent());
         } else {
@@ -196,7 +203,7 @@ public class DetailEventActivity extends AppCompatActivity {
       }
 
       @Override
-      public void onFailure(Call<Peserta> call, Throwable t) {
+      public void onFailure(Call<ResponseAPI> call, Throwable t) {
         progressDialogDaftar.dismiss();
         sqlQueryList();
         Toast.makeText(getApplicationContext(), "Maaf koneksi bermasalah", Toast.LENGTH_LONG).show();

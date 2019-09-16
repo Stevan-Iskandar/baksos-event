@@ -27,6 +27,10 @@ public class Peserta extends BaseModel implements Serializable, Parcelable {
   @Expose
   @Column
   private String username;
+  @SerializedName("is_registered")
+  @Expose
+  @Column
+  private Integer isRegistered;
 
   private final static long serialVersionUID = -28233401489564790L;
 
@@ -46,6 +50,7 @@ public class Peserta extends BaseModel implements Serializable, Parcelable {
     this.id = ((Integer) in.readValue((Integer.class.getClassLoader())));
     this.idEvent = ((Integer) in.readValue((Integer.class.getClassLoader())));
     this.username = ((String) in.readValue((String.class.getClassLoader())));
+    this.isRegistered = ((Integer) in.readValue((Integer.class.getClassLoader())));
   }
 
   public Peserta() {
@@ -56,6 +61,7 @@ public class Peserta extends BaseModel implements Serializable, Parcelable {
     dest.writeValue(id);
     dest.writeValue(idEvent);
     dest.writeValue(username);
+    dest.writeValue(isRegistered);
   }
 
   @Override
@@ -85,5 +91,13 @@ public class Peserta extends BaseModel implements Serializable, Parcelable {
 
   public void setUsername(String username) {
     this.username = username;
+  }
+
+  public Integer getIsRegistered() {
+    return isRegistered;
+  }
+
+  public void setIsRegistered(Integer isRegistered) {
+    this.isRegistered = isRegistered;
   }
 }

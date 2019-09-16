@@ -23,18 +23,13 @@ import retrofit2.http.Query;
  */
 
 public interface APIInterfacesRest {
-//  @GET("users")
-//  Call<com.juaracoding.absensi.model.reqres.User> getUserReqres(@Query("page") String page);
-//
-//  @GET("comments")
-//  Call<List<Comment>> getComment(@Query("postId") String postId);
-
   @GET("getevent")
   Call<List<Event>> getAllEvent();
 
   @FormUrlEncoded
   @POST("loginuser")
-  Call<ResponseAPI> postLogin(@Field("username") String username, @Field("password") String password);
+  Call<ResponseAPI> postLogin(@Field("username") String username,
+                              @Field("password") String password);
 
   @FormUrlEncoded
   @POST("setuser")
@@ -51,6 +46,6 @@ public interface APIInterfacesRest {
 
   @FormUrlEncoded
   @POST("daftarevent")
-  Call<Peserta> postDaftarEvent(@Field("id_event") String id_event,
-                                @Field("username") String username);
+  Call<ResponseAPI> postDaftarEvent(@Field("id_event") String id_event,
+                                    @Field("username") String username);
 }

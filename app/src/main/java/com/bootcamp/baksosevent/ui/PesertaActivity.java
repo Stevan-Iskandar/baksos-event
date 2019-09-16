@@ -47,7 +47,7 @@ public class PesertaActivity extends AppCompatActivity {
   }
 
   public void sqlQueryList(){
-    String rawQuery = "SELECT * FROM `Peserta` WHERE idEvent = " + idEvent;
+    String rawQuery = "SELECT * FROM `Peserta` WHERE idEvent = " + idEvent + " AND isRegistered = 1";
     StringQuery<Peserta> stringQuery = new StringQuery<>(Peserta.class, rawQuery);
     stringQuery
       .async()
