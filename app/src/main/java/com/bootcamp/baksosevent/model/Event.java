@@ -47,6 +47,10 @@ public class Event extends BaseModel implements Serializable, Parcelable {
   @Expose
   @Column
   private String dataDonasi;
+  @SerializedName("maker")
+  @Expose
+  @Column
+  private String maker;
   @SerializedName("is_active")
   @Expose
   @Column
@@ -75,6 +79,7 @@ public class Event extends BaseModel implements Serializable, Parcelable {
     this.waktu = ((String) in.readValue((String.class.getClassLoader())));
     this.deskripsi = ((String) in.readValue((String.class.getClassLoader())));
     this.dataDonasi = ((String) in.readValue((String.class.getClassLoader())));
+    this.maker = ((String) in.readValue((String.class.getClassLoader())));
     this.isActive = ((Integer) in.readValue((Integer.class.getClassLoader())));
   }
 
@@ -91,6 +96,7 @@ public class Event extends BaseModel implements Serializable, Parcelable {
     dest.writeValue(waktu);
     dest.writeValue(deskripsi);
     dest.writeValue(dataDonasi);
+    dest.writeValue(maker);
     dest.writeValue(isActive);
   }
 
@@ -161,6 +167,14 @@ public class Event extends BaseModel implements Serializable, Parcelable {
 
   public void setDataDonasi(String dataDonasi) {
     this.dataDonasi = dataDonasi;
+  }
+
+  public String getMaker() {
+    return maker;
+  }
+
+  public void setMaker(String maker) {
+    this.maker = maker;
   }
 
   public Integer getIsActive() {

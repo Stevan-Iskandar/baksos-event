@@ -13,7 +13,7 @@ import com.bootcamp.baksosevent.utils.SharedPreferencesUtil;
 
 public class MenuActivity extends AppCompatActivity {
   SharedPreferencesUtil session;
-  Button btnEvent, btnDonate, btnAbout;
+  Button btnEvent, btnBuatEvent, btnDonate, btnAbout;
   TextView txtLogout;
 
   @Override
@@ -24,6 +24,7 @@ public class MenuActivity extends AppCompatActivity {
     session = new SharedPreferencesUtil(MenuActivity.this);
     setTitle(session.getUsername());
     btnEvent = findViewById(R.id.btnEvent);
+    btnBuatEvent = findViewById(R.id.btnBuatEvent);
     btnDonate = findViewById(R.id.btnDonate);
     btnAbout = findViewById(R.id.btnAbout);
     txtLogout = findViewById(R.id.txtLogout);
@@ -32,6 +33,14 @@ public class MenuActivity extends AppCompatActivity {
       @Override
       public void onClick(View view) {
         Intent intent = new Intent(MenuActivity.this, AllEventActivity.class);
+        startActivity(intent);
+      }
+    });
+
+    btnBuatEvent.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent = new Intent(MenuActivity.this, BuatEventActivity.class);
         startActivity(intent);
       }
     });

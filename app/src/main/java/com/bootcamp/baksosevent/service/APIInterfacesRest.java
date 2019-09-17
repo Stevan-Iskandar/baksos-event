@@ -9,13 +9,18 @@ import com.bootcamp.baksosevent.model.Peserta;
 import com.bootcamp.baksosevent.model.ResponseAPI;
 import com.bootcamp.baksosevent.model.User;
 
+import java.io.File;
 import java.util.List;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 /**
@@ -48,4 +53,15 @@ public interface APIInterfacesRest {
   @POST("daftarevent")
   Call<ResponseAPI> postDaftarEvent(@Field("id_event") String id_event,
                                     @Field("username") String username);
+
+  @Multipart
+  @POST("posteventt")
+  Call<ResponseAPI> postEvent(@Part MultipartBody.Part image,
+                              @Part("nama") RequestBody nama,
+                              @Part("lokasi") RequestBody lokasi,
+                              @Part("tanggal") RequestBody tanggal,
+                              @Part("waktu") RequestBody waktu,
+                              @Part("deskripsi") RequestBody deskripsi,
+                              @Part("data_donasi") RequestBody data_donasi,
+                              @Part("username") RequestBody username);
 }

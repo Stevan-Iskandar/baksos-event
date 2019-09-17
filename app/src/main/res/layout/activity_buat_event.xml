@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@drawable/bg_list_all_event"
+  android:gravity="center_horizontal"
+  android:orientation="vertical">
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbarSize="0dp">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="30dp"
+      android:layout_marginRight="30dp"
+      android:gravity="center_horizontal"
+      android:orientation="vertical">
+
+      <ImageView
+        android:id="@+id/ivPostEvent"
+        android:layout_width="370dp"
+        android:layout_height="147dp"
+        android:layout_marginTop="50dp"
+        app:srcCompat="@drawable/gallery" />
+
+      <TextView
+        android:id="@+id/txtInsertPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Insert Photo"
+        android:textColor="#079140"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Nama Kegiatan :"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+      <EditText
+        android:id="@+id/etNamaEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="12sp" />
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lokasi Kegiatan :"
+        android:textStyle="bold" />
+
+      <EditText
+        android:id="@+id/etLokasiEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="12sp" />
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tanggal Kegiatan"
+        android:textStyle="bold" />
+
+      <EditText
+        android:id="@+id/etTanggalEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:focusable="false"
+        android:textSize="12sp" />
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Waktu Kegiatan :"
+        android:textStyle="bold" />
+
+      <EditText
+        android:id="@+id/etWaktuEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="10sp" />
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Deskripsi :"
+        android:textStyle="bold" />
+
+      <EditText
+        android:id="@+id/etDeskripsiEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp" />
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Data Donasi :"
+        android:textStyle="bold" />
+
+      <EditText
+        android:id="@+id/etDataDonasiEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="5"
+        android:inputType="textPersonName"
+        android:textSize="10sp" />
+
+      <Button
+        android:id="@+id/btnPostEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="#99A09C9C"
+        android:text="Submit" />
+
+    </LinearLayout>
+  </ScrollView>
+
+</LinearLayout>

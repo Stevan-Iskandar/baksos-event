@@ -10,8 +10,10 @@
     android:label="@string/app_name"
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
+    android:usesCleartextTraffic="true"
     android:theme="@style/AppTheme">
-    <activity android:name=".ui.PesertaActivity"></activity>
+    <activity android:name=".ui.BuatEventActivity" />
+    <activity android:name=".ui.PesertaActivity" />
     <activity android:name=".ui.AboutActivity" />
     <activity android:name=".ui.DetailEventActivity" />
     <activity android:name=".ui.DonateActivity" />
@@ -27,11 +29,11 @@
       </intent-filter>
     </activity>
   </application>
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
   <dist:module dist:instant="true" />
 
